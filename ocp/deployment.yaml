@@ -4,9 +4,9 @@ kind: Deployment
 metadata:
   name: oliver-app
   annotations:
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"jonas-lernia-app:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"jonas-lernia-app\")].image"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"lernia-app:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"oliver-app\")].image"}]'
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: oliver-app
@@ -16,8 +16,8 @@ spec:
         app: oliver-app
     spec:
       containers:
-      - name: oliver-lernia-app
-        image: jonas-lernia-app:latest
+      - name: oliver-app
+        image: lernia-app:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
