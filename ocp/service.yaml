@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: oliver-app
+  name: oliver-lernia-app
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
@@ -13,7 +13,7 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: oliver-app
+    app: oliver-lernia-app
   sessionAffinity: None
   type: ClusterIP
 

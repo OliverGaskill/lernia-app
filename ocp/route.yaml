@@ -2,14 +2,14 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: oliver-app
+  name: oliver-lernia-app
 spec:
-  host: oliver-app.apps.cluster5.karoshi.se
+  host: oliver-lernia-app.apps.cluster5.karoshi.se
   port:
     targetPort: 8080
   to:
     kind: Service
-    name: oliver-app
+    name: oliver-lernia-app
     weight: 100
   wildcardPolicy: None
 

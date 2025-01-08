@@ -2,23 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: oliver-app
+  name: oliver-lernia-app
   annotations:
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"lernia-app:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"oliver-app\")].image"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"oliver-lernia-app:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"oliver-lernia-app\")].image"}]'
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: oliver-app
+      app: oliver-lernia-app
   template:
     metadata:
       labels:
-        app: oliver-app
+        app: oliver-lernia-app
     spec:
       containers:
-      - name: oliver-app
-        image: lernia-app:latest
+      - name: oliver-lernia-app
+        image: oliver-lernia-app:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-
